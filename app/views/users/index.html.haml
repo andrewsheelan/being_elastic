@@ -6,29 +6,33 @@
         .input-group-btn
           = f.submit class: 'btn btn-default'
 
-  %h1
+  %h4
+    %span.glyphicon.glyphicon-list
     Listing users
-%h4
-  = link_to new_user_path, class: 'btn btn-xs' do
+
+.pull-right= paginate @users
+
+%table.table.table-striped.table-hover
+  %thead
+    %tr
+      %th Name
+      %th Email
+      %th
+      %th
+      %th
+
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= user.name
+        %td= user.email
+        %td= link_to 'Show', user
+        %td= link_to 'Edit', edit_user_path(user)
+        %td= link_to 'Destroy', user, :data => { confirm: 'Are you sure?' }, :method => :delete
+
+.pull-right
+  = link_to new_user_path, class: 'btn btn-primary' do
     %span.glyphicon.glyphicon-plus
     New User
 
 %p
-.table-responsive
-  %table.table.table-striped.table-hover
-    %thead
-      %tr
-        %th Name
-        %th Email
-        %th
-        %th
-        %th
-
-    %tbody
-      - @users.each do |user|
-        %tr
-          %td= user.name
-          %td= user.email
-          %td= link_to 'Show', user
-          %td= link_to 'Edit', edit_user_path(user)
-          %td= link_to 'Destroy', user, :data => { confirm: 'Are you sure?' }, :method => :delete
