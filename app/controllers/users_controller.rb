@@ -4,8 +4,8 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @q = User.ransack(params[:q])
-    @users = @q.result.page(params[:page])
+    query = params[:query] || '*'
+    @users = User.search(query, page: params[:page], per_page: 10)
   end
 
   # GET /users/1

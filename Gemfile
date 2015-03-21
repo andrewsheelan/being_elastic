@@ -25,9 +25,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'bootstrap-generators', '~> 3.3.1'
 gem 'haml-rails', '~> 0.9.0'
-gem 'ransack', github: 'activerecord-hackery/ransack', branch: 'rails-4.2'
 gem 'simple_form', '~> 3.1.0'
 gem 'kaminari', '~> 0.16.3'
+gem 'searchkick', '~> 0.8.7'
 
 gem 'forgery', '0.6.0'
 # Use ActiveModel has_secure_password
