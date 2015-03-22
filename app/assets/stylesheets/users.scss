@@ -1,0 +1,8 @@
+.can-get-empty {
+  tr:last-child {
+    display: none;
+  }
+  tr:first-child {
+    display: table-row;
+  }
+}

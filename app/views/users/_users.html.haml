@@ -17,7 +17,7 @@
       %th
       %th
 
-  %tbody
+  %tbody.can-get-empty
     - @users.each do |user|
       %tr
         %td= user.name
@@ -25,5 +25,9 @@
         %td= link_to 'Show', user
         %td= link_to 'Edit', edit_user_path(user)
         %td= link_to 'Destroy', user, :data => { confirm: 'Are you sure?' }, :method => :delete
+    %tr.empty-row
+      %td{colspan: 5}
+        %small No Rows Found
+
 
 .pull-right= paginate @users
