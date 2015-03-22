@@ -1,7 +1,11 @@
 .can-get-empty {
+  // Hide the last row
   tr:last-child {
     display: none;
   }
+
+  // Always display the first row.
+  // (This will display .emty-row which is placed @ the end of the table, if its the only one)
   tr:first-child {
     display: table-row;
   }
