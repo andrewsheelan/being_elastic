@@ -8,6 +8,10 @@ class UsersController < ApplicationController
     @users = User.search(query, page: params[:page], per_page: 10, suggest: true)
   end
 
+  def autocomplete
+    render json: User.search(params[:query], limit: 10).map(&:name)
+  end
+
   # GET /users/1
   # GET /users/1.json
   def show

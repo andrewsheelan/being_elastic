@@ -5,7 +5,7 @@
       .input-group
         .input-group-btn
           = submit_tag "Search", class: "btn btn-info"
-        = text_field_tag :query, params[:query], class: "form-control", placeholder: 'Search for...'
+        = text_field_tag :query, params[:query], id: 'search', class: "form-control", placeholder: 'Search for...'
 
   %h4
     %span.glyphicon.glyphicon-list
@@ -17,3 +17,5 @@
 = link_to new_user_path, class: 'btn btn-primary' do
   %span.glyphicon.glyphicon-plus
   New User
+
+= render partial: 'typeahead'

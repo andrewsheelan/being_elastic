@@ -1,0 +1,52 @@
+<br />
+<br />
+<br />
+<br />
+<p>Typeahead stuff here</p>
+<br />
+<input type="text" id="typeahead" name="query" />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<script>
+	// Using Typeaheard.js Bloodhound engine that includes suggestion
+	var names = new Bloodhound({
+	  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
+	  queryTokenizer: Bloodhound.tokenizers.whitespace,
+	  remote: { 
+	  	url: '/autocomplete?query=%QUERY',
+	  	filter: function(list) {
+	      return $.map(list, function(name) { return { name: name }; });
+	   	}
+	  }
+	});
+	 
+	names.initialize();
+	 
+	$('#typeahead').typeahead(null, {
+	  name: 'names',
+	  displayKey: 'name',
+	  source: names.ttAdapter()
+	});
+</script>
