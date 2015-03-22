@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     query = params[:query] || '*'
-    @users = User.search(query, page: params[:page], per_page: 10)
+    @users = User.search(query, page: params[:page], per_page: 10, suggest: true)
   end
 
   # GET /users/1

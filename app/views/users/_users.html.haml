@@ -1,4 +1,12 @@
-.pull-right= paginate @users
+.pull-right
+  = paginate @users
+
+- if @users.suggestions.present?
+  .text-danger
+    Did you mean:
+    - @users.suggestions.each do |suggestion|
+      = link_to suggestion, query: suggestion
+
 %br
 %table.table.table-striped.table-hover
   %thead

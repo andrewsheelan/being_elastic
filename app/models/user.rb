@@ -1,3 +1,9 @@
 class User < ActiveRecord::Base
-  searchkick
+  searchkick suggest: [:name]
+  def search_data
+    {
+      name: name,
+      email: email
+    }
+  end
 end

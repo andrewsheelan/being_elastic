@@ -7,6 +7,7 @@ class CreateUsers < ActiveRecord::Migration
       t.timestamps null: false
     end
 
+    User.reindex
     1..5000.times do
       User.create(name: Forgery('name').full_name, email: Forgery('internet').email_address)
     end
